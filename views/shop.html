@@ -3,9 +3,23 @@
         <p>Shop Page</p>
     </div>
 </section>
-<div class="product-grid__item   grid__item one-half large--one-third" >
+<div class="product-grid__item   grid__item one-half large--one-third" ng-repeat='item in clothes'>
 
     <!--Repeat over your data and display it below -->
+<img ng-src='{{item.image}}'>
 
-    
+
+<div class="product-grid__meta">
+    <!--Title click Should redirect to the product-details section. remember to pass along the product id so you can make an api call
+to get the specific product details-->
+    <h3 class="product-grid__name" ui-sref='product({id: item.id})'><a>{{item.title}}</a></h3>
+
+    <!--Product Description-->
+    <h4 class="product-grid__sub">{{item.desc}}</h4>
+
+    <!--Product Price-->
+    <div class="product-grid__price" >{{item.price | currency}}</div>
+</div>
+
+
 </div>
